@@ -4,9 +4,9 @@
 
 #### Layer tree:
 
-Layer 1: Components
-Layer 2: App
-Layer 3: AppBuilder
+1. Components
+2. App
+3. AppBuilder
 
 
 #### Explaination
