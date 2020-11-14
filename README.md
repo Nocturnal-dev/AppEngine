@@ -2,17 +2,23 @@
 
 ### Noctuenal App structure
 
-Layer tree:
+#### Layer tree:
 
 Layer 1: Components
 Layer 2: App
 Layer 3: AppBuilder
 
+
+#### Explaination
+
 Layer 1:
+
 The components run logic.
 
 Layer 2:
+
 The App runs and stores components.
 
 Layer 3:
+
 The AppBuilder runs multiple Apps.
