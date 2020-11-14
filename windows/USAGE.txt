@@ -1,0 +1,3 @@
+1. Open WSL witha linux distro
+2. Run the build-examples.sh and run-examples.sh files
+3. Improve your Nocturnal skills!
