@@ -40,7 +40,7 @@ export class List<T> {
 }
 export class Component
 {
-    public Build() : void
+    public async Build()
     {
 
     }
@@ -112,6 +112,41 @@ export class HTMLFile
     } 
 };
 
+export class TagComponent extends Component
+{
+    private path: string;
+    private tag : string;
+    private attribs : List<Attribute>;
+    private innerText : string;
+    private childComponents : List<TagComponent>;
+
+    constructor(path : string, tag : string, attribs : List<Attribute>, innerText : string)
+    {
+        super();
+        this.path = path;
+        this.tag = tag;
+        this.attribs = attribs;
+        this.innerText = innerText;
+        this.childComponents = new List<TagComponent>();
+    }
+
+    public async Build()
+    {
+        let file = new HTMLFile(this.path);
+        await file.WriteTagBegin(this.tag, this.attribs);
+        await file.Write(this.innerText);
+        for (let i = 0; i < this.childComponents.size(); i++) {
+            await this.childComponents.get(i).Build();
+        }
+        await file.WriteTagEnd(this.tag);
+    }
+    public AddComponent(tag: TagComponent)
+    {
+        this.childComponents.add(tag);
+    }
+    
+}
+
 export class App
 {
     private components : List<Component>;
@@ -124,16 +159,16 @@ export class App
     {
         this.components.add(component);
     }
-    public Build() : void
+    public async Build()
     {
         for (let i = 0; i < this.components.size(); i++) {
-            this.components.get(i).Build();
+            await this.components.get(i).Build();
         }
     }
 }
 export class AppBuilder
 {
-    public Build(name: string) : void
+    public async Build(name: string)
     {
         
     }
