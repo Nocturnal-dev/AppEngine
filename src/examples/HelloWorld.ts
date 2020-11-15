@@ -4,7 +4,17 @@ class HelloComponent extends nocturnal.Component
 {
     public Build()
     {
-        console.log("Hello, World!");
+        let file = new nocturnal.HTMLFile("HelloWorld.html");
+        let attribs = new nocturnal.List<nocturnal.Attribute>();
+        file.WriteTagBegin("html", attribs);
+        file.WriteTagBegin("head", attribs);
+        file.WriteTagEnd("head");
+        file.WriteTagBegin("body", attribs);
+        file.WriteTagBegin("p", attribs);
+        file.Write("Hello, World!");
+        file.WriteTagEnd("p");
+        file.WriteTagEnd("body");
+        file.WriteTagEnd("html");
     }
 }
 class Test extends nocturnal.AppBuilder

@@ -1,0 +1,22 @@
+{
+		"name": "nocturnal",
+		"version": "1.0.0",
+		"description": "The Nocturnal AppEngine.",
+		"main": "",
+		"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+		},
+		"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Nocturnal-dev/AppEngine.git"
+		},
+		"author": "oliver",
+		"license": "BSD-3-Clause",
+		"bugs": {
+				"url": "https://github.com/Nocturnal-dev/AppEngine/issues"
+		},
+		"homepage": "https://github.com/Nocturnal-dev/AppEngine#readme",
+		"devDependencies": {
+				"@types/node": "^14.14.7"
+		}
+}

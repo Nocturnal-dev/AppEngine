@@ -1,4 +1,4 @@
-import * as fs from "./fs-extra"
+import * as fs from "fs"
 
 export class Map<T> {
     private items: { [key: string]: T };
@@ -45,6 +45,73 @@ export class Component
 
     }
 }
+
+// HTML
+
+export class Attribute
+{
+    private name: string;
+    private value: string;
+
+    public constructor(name : string, value : string)
+    {
+        this.name = name;
+        this.value = value;
+    }
+    public SetName(name : string) : void
+    {
+        this.name = name;
+    }
+    public GetName() : string
+    {
+        return this.name;
+    }
+
+    public SetValue(value : string) : void
+    {
+        this.value = value;
+    }
+    public GetValue() : string
+    {
+        return this.value;
+    }
+}
+export class HTMLFile
+{
+    private path : string;
+    constructor(path : string)
+    {
+        this.path = path;
+    }
+
+    public async Write(data : string)
+    {
+        await fs.appendFile(this.path, data, function(err)
+        {
+            if (err) console.error(err);
+        });
+    }
+
+    public async WriteTagBegin(tag : string, attribs : List<Attribute>)
+    {
+        let result = "";
+        result += `<${tag} `;
+        
+        let i;
+        for (i = 0; i < attribs.size(); i++)
+        {
+            result += `${attribs.get(i).GetName()}=${attribs.get(i).GetValue()} `;
+        }
+        result += ">";
+        await this.Write(result);
+    }
+    
+    public async WriteTagEnd(tag : string)
+    {
+        await this.Write(`</${tag}>`);
+    } 
+};
+
 export class App
 {
     private components : List<Component>;
