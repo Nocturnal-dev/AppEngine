@@ -2,4 +2,4 @@ package-lock.json
 node_modules
 *.js
 # Tests
-HelloWorld.html
+*.html

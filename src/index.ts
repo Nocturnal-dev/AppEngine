@@ -1,4 +1,5 @@
 import * as fs from "fs"
+import * as child_process from "child_process"
 
 export class Map<T> {
     private items: { [key: string]: T };
@@ -146,6 +147,60 @@ export class TagComponent extends Component
     }
     
 }
+
+export class ScriptComponent extends TagComponent
+{
+    constructor(htmlpath : string, scriptText : string, scriptPath : string)
+    {
+        let list = new List<Attribute>();
+        list.add(new Attribute("type", `"text/javascript"`));
+        if(scriptPath)
+        {
+            list.add(new Attribute("src", scriptPath));
+        }
+        super(htmlpath, "script", list, scriptText);
+    }
+}
+
+export class HTMLRootComponent extends TagComponent
+{
+    constructor(path : string)
+    {
+        super(path, "html", new List<Attribute>(), "");
+    }
+}
+
+export class HTMLBodyComponent extends TagComponent
+{
+    constructor(path : string, attribs : List<Attribute>)
+    {
+        super(path, "body", attribs, "");
+    }
+}
+
+export class HTMLHeadComponent extends TagComponent
+{
+    constructor(path : string, attribs : List<Attribute>)
+    {
+        super(path, "head", attribs, "");
+    }
+}
+
+export class HTMLLinkComponent extends TagComponent
+{
+    constructor(path : string, attribs : List<Attribute>, innerText : string)
+    {
+        super(path, "link", attribs, innerText);
+    }
+}
+
+export class HTMLTitleComponent extends TagComponent
+{
+    constructor(path : string, title : string)
+    {
+        super(path, "title", new List<Attribute>(), title);
+    }
+} 
 
 export class App
 {
