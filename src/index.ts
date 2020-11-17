@@ -226,6 +226,284 @@ export class HTMLStyleComponent extends HTMLLinkComponent
     }
 }
 
+export class HTMLScriptFileComponent extends HTMLScriptComponent
+{
+    constructor(htmlpath : string, scriptPath : string)
+    {
+        super(htmlpath, "", scriptPath);
+    }
+}
+
+export class HTMLHeaderComponent extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "h1", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "h1", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLHeader2Component extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "h2", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "h2", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLHeader3Component extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "h3", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "h3", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLHeader4Component extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "h4", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "h4", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLHeader5Component extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "h5", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "h5", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLHeader6Component extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "h6", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "h6", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLParagraphComponent extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "p", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "p", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLSpanComponent extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "span", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "span", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLBoldComponent extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "b", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "b", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLStrongComponent extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "strong", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "strong", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLItallicComponent extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "i", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "i", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLEmphasizedComponent extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "em", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "em", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLMarkComponent extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "mark", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "mark", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLSmallComponent extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "small", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "small", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLDeletedComponent extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "del", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "del", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLInsertComponent extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "ins", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "ins", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLSubscriptComponent extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "sub", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "sub", new List<Attribute>(), text);
+        }
+    }
+}
+
+export class HTMLSuperScriptComponent extends TagComponent
+{
+    constructor(htmlpath : string, text : string, attribs? : List<Attribute>)
+    {
+        if(attribs)
+        {
+            super(htmlpath, "sup", attribs, text);
+        }
+        else
+        {
+            super(htmlpath, "sup", new List<Attribute>(), text);
+        }
+    }
+}
+
 export class App
 {
     private components : List<Component>;
