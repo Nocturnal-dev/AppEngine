@@ -9,7 +9,7 @@ class ButtonTest extends nocturnal.AppBuilder
         let title = new nocturnal.TagComponent("ButtonTest.html", "title", new nocturnal.List<nocturnal.Attribute>(), name);
         app.AddComponent(title);
 
-        let script = new nocturnal.ScriptComponent("ButtonTest.html", 
+        let script = new nocturnal.HTMLScriptComponent("ButtonTest.html", 
         `
         function test()
         {

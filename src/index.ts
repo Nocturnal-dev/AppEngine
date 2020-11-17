@@ -119,7 +119,7 @@ export class TagComponent extends Component
     private tag : string;
     private attribs : List<Attribute>;
     private innerText : string;
-    private childComponents : List<TagComponent>;
+    private childComponents : List<Component>;
 
     constructor(path : string, tag : string, attribs : List<Attribute>, innerText : string)
     {
@@ -128,7 +128,7 @@ export class TagComponent extends Component
         this.tag = tag;
         this.attribs = attribs;
         this.innerText = innerText;
-        this.childComponents = new List<TagComponent>();
+        this.childComponents = new List<Component>();
     }
 
     public async Build()
@@ -141,14 +141,14 @@ export class TagComponent extends Component
         }
         await file.WriteTagEnd(this.tag);
     }
-    public AddComponent(tag: TagComponent)
+    public AddComponent(tag: Component)
     {
         this.childComponents.add(tag);
     }
     
 }
 
-export class ScriptComponent extends TagComponent
+export class HTMLScriptComponent extends TagComponent
 {
     constructor(htmlpath : string, scriptText : string, scriptPath : string)
     {
@@ -186,11 +186,24 @@ export class HTMLHeadComponent extends TagComponent
     }
 }
 
-export class HTMLLinkComponent extends TagComponent
+export class HTMLLinkComponent extends Component
 {
+    private path: string;
+    private attribs : List<Attribute>;
+    private innerText : string;
+
     constructor(path : string, attribs : List<Attribute>, innerText : string)
     {
-        super(path, "link", attribs, innerText);
+        super();
+        this.path = path;
+        this.attribs = attribs;
+        this.innerText = innerText;
+    }
+
+    public async Build()
+    {
+        let file = new HTMLFile(this.path);
+        await file.WriteTagBegin("link", this.attribs);
     }
 }
 
@@ -200,7 +213,18 @@ export class HTMLTitleComponent extends TagComponent
     {
         super(path, "title", new List<Attribute>(), title);
     }
-} 
+}
+
+export class HTMLStyleComponent extends HTMLLinkComponent
+{
+    constructor(path : string, stylesheetpath : string)
+    {
+        let attribs = new List<Attribute>();
+        attribs.add(new Attribute("rel", "stylesheet"));
+        attribs.add(new Attribute("href", stylesheetpath));
+        super(path, attribs, "");
+    }
+}
 
 export class App
 {
